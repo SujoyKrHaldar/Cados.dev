@@ -64,7 +64,9 @@ body {
 
 a {
   color: inherit;
+  font-size: 1.2rem;
   text-decoration: none;
+  display: inline-block;
 }
 
 h1 {
@@ -75,12 +77,11 @@ h1 {
 
 h2 {
   font-family: "Bona Nova", serif;
-  font-size: 2rem;
-  line-height: 2.6rem;
+  font-size: 3rem;
+  line-height: 3.5rem;
 }
 p {
   font-size: 1.2rem;
-  line-height: 2rem;
 }
 
 .tag {
