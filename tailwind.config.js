@@ -18,7 +18,7 @@ module.exports = {
     extend: {
       colors: {
         "black-500": "#1c1c1c",
-        secondary: "#f1a597",
+        secondary: "#ffe5d7",
       },
     },
   },

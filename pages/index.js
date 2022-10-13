@@ -1,4 +1,5 @@
 import Head from "next/head";
+import AdvocateList from "../components/home/AdvocateList";
 import Landing from "../components/home/Landing";
 import Layout from "../components/layout/Layout";
 
@@ -7,14 +8,14 @@ export const getStaticProps = async () => {
   const userData = await res.json();
   return {
     props: {
-      user: userData,
+      user: userData.advocates,
     },
     revalidate: 10,
   };
 };
 
 export default function Home({ user }) {
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <Head>
@@ -25,6 +26,7 @@ export default function Home({ user }) {
 
       <Layout>
         <Landing />
+        <AdvocateList data={user} />
       </Layout>
     </>
   );
