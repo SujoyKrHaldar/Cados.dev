@@ -1,7 +1,33 @@
 import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import Layout from "../components/layout/Layout";
+import Img from "../components/tools/Img";
 
-function search() {
+export const getServerSideProps = async ({ query }) => {
+  const { name } = query;
+  const res = await fetch(
+    `https://cados.up.railway.app/advocates?query=${name}`
+  );
+  const userData = await res.json();
+
+  return {
+    props: {
+      name,
+      user: userData.advocates,
+    },
+  };
+};
+
+function search({ user, name }) {
+  const [query, setQuery] = useState(name);
+  const router = useRouter();
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/search?name=${query}`);
+  };
+
   return (
     <>
       <Head>
@@ -11,7 +37,37 @@ function search() {
       </Head>
 
       <Layout>
-        
+        <section className="container py-32">
+          <form className="p-8" onSubmit={handelSubmit}>
+            <input
+              type="text"
+              className="p-4 border border-black"
+              onChange={(e) => setQuery(e.target.value)}
+              value={query}
+            />
+          </form>
+
+          {user.length > 0 ? (
+            <div className="grid grid-cols-4 gap-4">
+              {user.map((dev) => (
+                <Link
+                  href={`advocates/${dev.username.toLowerCase()}`}
+                  key={dev.username}
+                >
+                  <a className="text-center space-y-3">
+                    <div className="w-full h-[200px] overflow-hidden rounded-full">
+                      <Img src={dev.profile_pic} alt={dev.name} />
+                    </div>
+
+                    <p>{dev.username}</p>
+                  </a>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <h2>No user named {name} found</h2>
+          )}
+        </section>
       </Layout>
     </>
   );

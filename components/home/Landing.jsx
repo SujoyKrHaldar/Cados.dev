@@ -37,7 +37,7 @@ function Landing() {
               design="bg-black-500 text-white "
             />
             <Button
-              href="https://sujoykh.vercel.app"
+              href="/advocates"
               text="Discover people"
               visible="hidden"
               design="text-black duration-200 "

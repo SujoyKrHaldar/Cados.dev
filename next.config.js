@@ -1,7 +1,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com", "cados.up.railway.app"],
+    domains: ["pbs.twimg.com", "abs.twimg.com", "cados.up.railway.app"],
   },
   eslint: {
     ignoreDuringBuilds: true,

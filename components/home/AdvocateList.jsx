@@ -10,18 +10,21 @@ function AdvocateList({ data }) {
         <div className="space-y-6">
           <div className="space-y-2 max-w-md">
             <p className="tag">Discover peoples</p>
-            <h2>
-              The
-              <span className="font-bold"> Platform </span> for all developers.
-            </h2>
+            <h2 className="font-bold">You are not Alone.</h2>
+            <h2>You have peers.</h2>
           </div>
 
           <div className="space-y-8">
             <p className="font-bold">Top developers</p>
-            {/* design idea - https://dribbble.com/shots/18383615-Web-UI */}
+            {/* design idea - https://dribbble.com/shots/18383615-Web-UI 
+            https://dribbble.com/shots/18961380-BattlePeer-Web-Design
+            https://dribbble.com/shots/18961562-BattlePeer-Web-Design*/}
             <div className="flex items-center gap-8">
               {data.map((dev) => (
-                <div key={dev.id} className="w-[200px] text-center space-y-3">
+                <div
+                  key={dev.username}
+                  className="w-[200px] text-center space-y-3"
+                >
                   <div className="w-full h-[200px] overflow-hidden rounded-full">
                     <Img src={dev.profile_pic} alt={dev.name} />
                   </div>
