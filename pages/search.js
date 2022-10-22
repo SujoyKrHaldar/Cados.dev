@@ -12,20 +12,28 @@ export const getServerSideProps = async ({ query }) => {
   );
   const userData = await res.json();
 
+  if (!userData) {
+    return {
+      redirect: "/",
+      parmanent: false,
+    };
+  }
+
   return {
     props: {
-      name,
       user: userData.advocates,
     },
   };
 };
 
-function search({ user, name }) {
-  const [query, setQuery] = useState(name);
+function search({ user }) {
   const router = useRouter();
+  const [query, setQuery] = useState(router.query.name);
+
   const handelSubmit = (e) => {
     e.preventDefault();
-    router.push(`/search?name=${query}`);
+    const searchQuery = query.trim().replaceAll(" ", "+");
+    router.push(`/search?name=${searchQuery}`);
   };
 
   return (
@@ -65,7 +73,7 @@ function search({ user, name }) {
               ))}
             </div>
           ) : (
-            <h2>No user named {name} found</h2>
+            <h2>No user found</h2>
           )}
         </section>
       </Layout>

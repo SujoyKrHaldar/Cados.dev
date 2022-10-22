@@ -4,18 +4,18 @@ import Img from "../../components/tools/Img";
 
 export const getServerSideProps = async ({ params }) => {
   const res = await fetch(
-    `https://cados.up.railway.app/advocates?query=${params.user}`
+    `https://cados.up.railway.app/advocates/${params.user}`
   );
   const userData = await res.json();
   return {
     props: {
-      user: userData.advocates[0],
+      user: userData.advocate,
     },
   };
 };
 
 function User({ user }) {
-  //   console.log(user);
+  console.log(user);
   return (
     <>
       <Head>

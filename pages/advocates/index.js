@@ -5,7 +5,7 @@ import Landing from "../../components/advocates/Landing";
 import Layout from "../../components/layout/Layout";
 import Img from "../../components/tools/Img";
 
-export const getStaticProps = async ({ context }) => {
+export const getStaticProps = async () => {
   const res = await fetch("https://cados.up.railway.app/advocates?limit=8");
   const userData = await res.json();
   return {
