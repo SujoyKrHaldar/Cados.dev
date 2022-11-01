@@ -1,21 +1,26 @@
 import Head from "next/head";
+import Profile from "../../components/advocates/Profile";
 import Layout from "../../components/layout/Layout";
-import Img from "../../components/tools/Img";
 
 export const getServerSideProps = async ({ params }) => {
+  const otherRes = await fetch(`https://cados.up.railway.app/advocates`);
+
   const res = await fetch(
     `https://cados.up.railway.app/advocates/${params.user}`
   );
+
   const userData = await res.json();
+  const otherData = await otherRes.json();
+
   return {
     props: {
       user: userData.advocate,
+      otherData: otherData.advocates,
     },
   };
 };
 
-function User({ user }) {
-  console.log(user);
+function User({ user, otherData }) {
   return (
     <>
       <Head>
@@ -25,15 +30,7 @@ function User({ user }) {
       </Head>
 
       <Layout>
-        <section className="container py-32">
-          <div className="w-[300px] h-[300px] overflow-hidden rounded-full">
-            <Img src={user.profile_pic} alt={user.name} />
-          </div>
-
-          <h1>{user.name}</h1>
-          <p>@{user.username}</p>
-          <p>{user.bio}</p>
-        </section>
+        <Profile user={user} others={otherData} />
       </Layout>
     </>
   );
