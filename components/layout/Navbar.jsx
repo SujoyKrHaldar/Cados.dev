@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BiSearch } from "react-icons/bi";
 
 function Navbar() {
   return (
@@ -12,12 +13,8 @@ function Navbar() {
           </Link>
 
           <nav className="flex items-center gap-6">
-            <Link href="/">
-              <a className="">Home</a>
-            </Link>
-
             <Link href="/advocates">
-              <a className="">Discover</a>
+              <a className="">Discover people</a>
             </Link>
 
             <Link href="/">
@@ -25,7 +22,9 @@ function Navbar() {
             </Link>
 
             <Link href="/search">
-              <a className="">Search</a>
+              <a className="flex items-center justify-center text-2xl">
+                <BiSearch />
+              </a>
             </Link>
           </nav>
         </div>

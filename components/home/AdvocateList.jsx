@@ -1,7 +1,6 @@
 import Img from "../tools/Img";
 
 function AdvocateList({ data }) {
-  console.log(data);
   return (
     <section className="py-16 w-full h-auto">
       <div className="absolute w-[95%] h-full right-0 top-0 bg-secondary"></div>

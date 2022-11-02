@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
-// import { useRouter } from "next/router";
+import { getData } from "../../action/fetcher";
 import Landing from "../../components/advocates/Landing";
+import ProfileCard from "../../components/design/ProfileCard";
 import Layout from "../../components/layout/Layout";
 import Img from "../../components/tools/Img";
 
@@ -10,13 +11,15 @@ export const getStaticProps = async () => {
   const userData = await res.json();
   return {
     props: {
-      user: userData.advocates,
+      data: userData.advocates,
     },
     revalidate: 10,
   };
 };
 
-function advocates({ user }) {
+function advocates({ data: initialData }) {
+  const { data, error } = getData(initialData);
+
   return (
     <>
       <Head>
@@ -28,22 +31,16 @@ function advocates({ user }) {
       <Layout>
         <Landing />
         <section className="container py-16 overflow-hidden">
-          <div className="grid grid-cols-4 gap-4">
-            {user.map((dev) => (
-              <Link
-                href={`advocates/${dev.username.toLowerCase()}`}
-                key={dev.username}
-              >
-                <a className="text-center space-y-3">
-                  <div className="w-full h-[200px] overflow-hidden rounded-full">
-                    <Img src={dev.profile_pic} alt={dev.name} />
-                  </div>
-
-                  <p>{dev.username}</p>
-                </a>
-              </Link>
-            ))}
-          </div>
+          {error && <h1>Error</h1>}
+          {data && !error ? (
+            <div className="grid grid-cols-4 gap-4">
+              {data.map((data) => (
+                <ProfileCard data={data} key={data.id} />
+              ))}
+            </div>
+          ) : (
+            <h1>Loading</h1>
+          )}
         </section>
       </Layout>
     </>

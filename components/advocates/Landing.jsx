@@ -1,6 +1,6 @@
 function Landing() {
   return (
-    <section className="py-16 w-full h-screen">
+    <section className="py-32 w-full h-auto">
       {/* <div className="absolute w-1/2 h-full right-0 top-0">
         <div className="absolute w-full h-1/2 inset-0 bg-gradient-to-b from-white z-10"></div>
         <div className="absolute w-1/3 h-full inset-0 bg-gradient-to-r from-white z-10"></div>
@@ -14,12 +14,19 @@ function Landing() {
       </div> */}
 
       <div className="container w-full h-full flex items-center z-10">
-        <div className="space-y-6 max-w-3xl">
+        <div className="space-y-6 max-w-3xl mx-auto text-center">
           <p className="tag">Discover peoples</p>
           <h2>
             The
             <span className="font-bold"> Platform </span> for all developers.
           </h2>
+          <div className="border border-black rounded-lg">
+            <input
+              type="text"
+              className="px-4 py-3 outline-none"
+              placeholder="Find your next collaborator"
+            />
+          </div>
         </div>
       </div>
     </section>
