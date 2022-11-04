@@ -4,13 +4,17 @@ import Layout from "../../components/layout/Layout";
 
 export const getServerSideProps = async ({ params }) => {
   const otherRes = await fetch(`https://cados.up.railway.app/advocates`);
-
   const res = await fetch(
     `https://cados.up.railway.app/advocates/${params.user}`
   );
-
   const userData = await res.json();
   const otherData = await otherRes.json();
+
+  if (!userData) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {

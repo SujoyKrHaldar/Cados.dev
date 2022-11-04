@@ -35,7 +35,7 @@ function advocates({ data: initialData }) {
           {data && !error ? (
             <div className="grid grid-cols-4 gap-4">
               {data.map((data) => (
-                <ProfileCard data={data} key={data.id} />
+                <ProfileCard data={data} key={data.follower_count} />
               ))}
             </div>
           ) : (

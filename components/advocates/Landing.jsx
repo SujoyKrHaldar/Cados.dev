@@ -1,4 +1,15 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
+
 function Landing() {
+  const [searchedQuery, setSearchedQuery] = useState("");
+  const router = useRouter();
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    const searchQuery = searchedQuery.trim().replaceAll(" ", "+");
+    router.push(`/search?name=${searchQuery}`);
+  };
   return (
     <section className="py-32 w-full h-auto">
       {/* <div className="absolute w-1/2 h-full right-0 top-0">
@@ -16,17 +27,22 @@ function Landing() {
       <div className="container w-full h-full flex items-center z-10">
         <div className="space-y-6 max-w-3xl mx-auto text-center">
           <p className="tag">Discover peoples</p>
-          <h2>
+          <h2 className="font-bold">
             The
-            <span className="font-bold"> Platform </span> for all developers.
+            <span className=""> Platform </span> for all developers.
           </h2>
-          <div className="border border-black rounded-lg">
+          <form
+            onSubmit={handelSubmit}
+            className="border border-black rounded-lg"
+          >
             <input
+              value={searchedQuery}
+              onChange={(e) => setSearchedQuery(e.target.value)}
               type="text"
               className="px-4 py-3 outline-none"
               placeholder="Find your next collaborator"
             />
-          </div>
+          </form>
         </div>
       </div>
     </section>

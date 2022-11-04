@@ -52,6 +52,7 @@ function search({ user }) {
               className="p-4 border border-black"
               onChange={(e) => setQuery(e.target.value)}
               value={query}
+              placeholder="Find new people"
             />
           </form>
 
@@ -60,7 +61,7 @@ function search({ user }) {
               {user.map((dev) => (
                 <Link
                   href={`advocates/${dev.username.toLowerCase()}`}
-                  key={dev.username}
+                  key={dev.follower_count}
                 >
                   <a className="text-center space-y-3">
                     <div className="w-full h-[200px] overflow-hidden rounded-full">

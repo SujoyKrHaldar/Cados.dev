@@ -14,8 +14,8 @@ function nFormatter(num) {
 
 function Profile({ user, others }) {
   return (
-    <section className="py-36">
-      <div className="absolute w-[96%] mx-auto h-[200px] top-4 inset-x-0 bg-green-300 rounded-3xl"></div>
+    <section className="pt-40 pb-16">
+      <div className="absolute w-[96%] mx-auto h-[225px] top-4 inset-x-0 bg-gray-200 rounded-3xl"></div>
 
       <div className="container">
         <div className="flex items-end gap-8">
@@ -32,7 +32,9 @@ function Profile({ user, others }) {
           </div>
           <div className="flex-1 py-6 flex items-end gap-2 justify-between w-full">
             <div className="space-y-1">
-              <p className="font-bold text-4xl">{user.name}</p>
+              <p className="font-bold text-4xl first-letter:uppercase">
+                {user.name}
+              </p>
               <p className="text-2xl">@{user.username}</p>
               <div className="flex items-center gap-1 pt-3">
                 <div className="flex  items-center -space-x-3">
@@ -40,11 +42,12 @@ function Profile({ user, others }) {
                     .filter((dp) => dp.follower_count != user.follower_count)
                     .slice(0, 4)
                     .map((dp) => (
-                      <img
-                        className="w-8 h-8 rounded-full border-4 border-white"
-                        src={dp.profile_pic}
-                        alt={dp.username}
-                      />
+                      <div
+                        key={dp.follower_count}
+                        className="w-8 h-8 rounded-full border-4 border-white overflow-hidden"
+                      >
+                        <Img src={dp.profile_pic} alt={dp.username} />
+                      </div>
                     ))}
                 </div>
                 <p className="font-bold text-lg">
@@ -67,8 +70,8 @@ function Profile({ user, others }) {
             </Link>
           </div>
         </div>
-        <div className="py-6 px-3 max-w-3xl space-y-2">
-          <p className="text-3xl font-bold">About me</p>
+        <div className="py-6 px-3 max-w-xl space-y-2">
+          <p className="text-3xl font-bold">Bio</p>
           <p className="text-gray-600">{user.bio}</p>
         </div>
       </div>
