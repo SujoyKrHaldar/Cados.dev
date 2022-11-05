@@ -1,17 +1,15 @@
 import Head from "next/head";
-import Link from "next/link";
 import { getData } from "../../action/fetcher";
+import Advocates from "../../components/advocates/Advocates";
 import Landing from "../../components/advocates/Landing";
-import ProfileCard from "../../components/design/ProfileCard";
 import Layout from "../../components/layout/Layout";
-import Img from "../../components/tools/Img";
 
 export const getStaticProps = async () => {
   const res = await fetch("https://cados.up.railway.app/advocates?limit=8");
   const userData = await res.json();
   return {
     props: {
-      total:userData.total,
+      total: userData.total,
       data: userData.advocates,
     },
     revalidate: 10,
@@ -31,18 +29,7 @@ function advocates({ total, data: initialData }) {
 
       <Layout>
         <Landing number={total} />
-        <section className="container py-16 overflow-hidden">
-          {error && <h1>Error</h1>}
-          {data && !error ? (
-            <div className="grid grid-cols-4 gap-4">
-              {data.map((data) => (
-                <ProfileCard data={data} key={data.follower_count} />
-              ))}
-            </div>
-          ) : (
-            <h1>Loading</h1>
-          )}
-        </section>
+        <Advocates data={data} error={error} number={total} />
       </Layout>
     </>
   );

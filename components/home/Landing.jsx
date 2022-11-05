@@ -5,8 +5,7 @@ function Landing() {
   return (
     <section className="py-16 w-full h-screen">
       <div className="absolute w-[45%] h-full right-0 top-0">
-        {/* <div className="absolute w-1/3 h-full inset-0 bg-gradient-to-r from-white z-10"></div> */}
-        <Img src="/assets/hero-background.jpg" position="" />
+        <Img src="/assets/hero-background.jpg" />
       </div>
 
       <div className="absolute w-1/3 h-full left-0 top-0">

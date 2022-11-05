@@ -18,13 +18,18 @@ function Landing({ number }) {
 
   return (
     <section className="pt-48 pb-16 w-full h-auto">
-      <div className="absolute w-1/3 h-full right-0 top-0">
+      <div className="absolute w-[45%] h-full right-0 top-0">
+        <Img src="/assets/hero-background.jpg" position="center" />
+        <div className="absolute w-1/3 h-full inset-0 bg-gradient-to-r from-white"></div>
+      </div>
+
+      <div className="absolute w-1/3 h-full left-0 top-0">
         <Img
           src="/assets/patternpad-hero.svg"
           className="opacity-50 grayscale"
         />
-        <div className="absolute w-1/3 h-full inset-0 bg-gradient-to-r from-white"></div>
-        <div className="absolute w-full h-1/3 bottom-0 left-0 bg-gradient-to-t from-white"></div>
+        <div className="absolute w-full h-full inset-0 bg-gradient-to-l from-white "></div>
+        <div className="absolute w-full h-full inset-0 bg-gradient-to-t from-white "></div>
       </div>
 
       <div className="container w-full h-full flex items-center">
@@ -45,14 +50,15 @@ function Landing({ number }) {
             />
             <input
               type="submit"
-              value="Find people"
+              value="Hunt people"
               className="py-2 px-5 text-base
                  bg-black-500 text-white rounded-lg cursor-pointer 
                  active:scale-95 duration-100 ease-in-out"
             />
           </form>
           <p className="font-thin">
-            Totel {number} developers already registered.{" "}
+            Totel <span className="font-semibold">{number}</span> developers
+            already registered.{" "}
             <Link href="/register">
               <a className="font-semibold">Join now</a>
             </Link>
