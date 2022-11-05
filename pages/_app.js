@@ -11,14 +11,11 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:site_name" content="" />
         <meta property="og:type" content="website" />
         <meta property="og:image:alt" content="" />
-        {/* <link
-          rel="canonical"
-          href="https://next-tailwindcss-template.vercel.app/"
-        /> */}
+        <link rel="canonical" href="https://cados-dev.vercel.app/" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NextNProgress color="#ed6457" options={{ showSpinner: false }} />
+      <NextNProgress color="#1c1c1c" options={{ showSpinner: false }} />
       <Component {...pageProps} />
     </>
   );

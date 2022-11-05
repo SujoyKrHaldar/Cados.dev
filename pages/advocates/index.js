@@ -11,13 +11,14 @@ export const getStaticProps = async () => {
   const userData = await res.json();
   return {
     props: {
+      total:userData.total,
       data: userData.advocates,
     },
     revalidate: 10,
   };
 };
 
-function advocates({ data: initialData }) {
+function advocates({ total, data: initialData }) {
   const { data, error } = getData(initialData);
 
   return (
@@ -29,7 +30,7 @@ function advocates({ data: initialData }) {
       </Head>
 
       <Layout>
-        <Landing />
+        <Landing number={total} />
         <section className="container py-16 overflow-hidden">
           {error && <h1>Error</h1>}
           {data && !error ? (
