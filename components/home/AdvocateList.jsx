@@ -2,7 +2,7 @@ import Img from "../tools/Img";
 
 function AdvocateList({ data }) {
   return (
-    <section className="py-16 w-full h-auto">
+    <section className="py-16 w-full h-auto bg-black-500">
       <div className="absolute w-[95%] h-full right-0 top-0 bg-secondary"></div>
 
       <div className="container w-full h-full">
@@ -15,9 +15,7 @@ function AdvocateList({ data }) {
 
           <div className="space-y-8">
             <p className="font-bold">Top developers</p>
-            {/* design idea - https://dribbble.com/shots/18383615-Web-UI 
-            https://dribbble.com/shots/18961380-BattlePeer-Web-Design
-            https://dribbble.com/shots/18961562-BattlePeer-Web-Design*/}
+
             <div className="flex items-center gap-8">
               {data.map((dev) => (
                 <div

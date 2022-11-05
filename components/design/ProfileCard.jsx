@@ -11,6 +11,7 @@ function ProfileCard({ data }) {
         <Img src={data.profile_pic} alt={data.name} className="opacity-80" />
       </div>
       <div className="space-y-1 pt-4 px-2">
+        {/* <p>{data.name}</p> */}
         <p className="text-2xl font-medium first-letter:uppercase">
           {data.username}
         </p>

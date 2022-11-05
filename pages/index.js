@@ -3,18 +3,19 @@ import AdvocateList from "../components/home/AdvocateList";
 import Landing from "../components/home/Landing";
 import Layout from "../components/layout/Layout";
 
-// export const getStaticProps = async () => {
-//   const res = await fetch("https://cados.up.railway.app/advocates/?limit=5");
-//   const userData = await res.json();
-//   return {
-//     props: {
-//       user: userData.advocates,
-//     },
-//     revalidate: 10,
-//   };
-// };
+export const getStaticProps = async () => {
+  const res = await fetch("https://cados.up.railway.app/advocates/?limit=5");
+  const userData = await res.json();
+  return {
+    props: {
+      total: userData.total,
+      user: userData.advocates,
+    },
+    revalidate: 10,
+  };
+};
 
-export default function Home({ user }) {
+export default function Home({ user, total }) {
   return (
     <>
       <Head>
@@ -24,8 +25,8 @@ export default function Home({ user }) {
       </Head>
 
       <Layout>
-        <Landing />
-        {/* <AdvocateList data={user} /> */}
+        <Landing data={user} count={total} />
+        <AdvocateList data={user} />
       </Layout>
     </>
   );

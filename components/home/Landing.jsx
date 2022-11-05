@@ -1,7 +1,8 @@
 import Img from "../tools/Img";
 import Button from "../tools/Button";
+import Link from "next/link";
 
-function Landing() {
+function Landing({ data, count }) {
   return (
     <section className="py-16 w-full h-screen">
       <div className="absolute w-[45%] h-full right-0 top-0">
@@ -21,7 +22,7 @@ function Landing() {
         <div className="space-y-4 max-w-[600px]">
           <p className="tag">Hey welcome</p>
           <h1 className="font-bold ">
-            Are you looking for <span className="">Collaboration?</span>
+            Are you looking <span className="block">for Collaboration?</span>
           </h1>
 
           <p className="max-w-md">
@@ -42,10 +43,25 @@ function Landing() {
               design="text-black bg-gray-100 duration-200 w-full"
             />
           </div>
+        </div>
 
-          <div className="absolute">
-            <p>vsdvsdjhvdjsh</p>
+        <div className="absolute w-fit h-fit bottom-0 flex items-center justify-start gap-2">
+          <div className="flex items-center -space-x-3">
+            {data.slice(0, 4).map((dp) => (
+              <div
+                key={dp.follower_count}
+                className="w-10 h-10 rounded-full border-4 border-white overflow-hidden"
+              >
+                <Img src={dp.profile_pic} alt={dp.username} />
+              </div>
+            ))}
           </div>
+          <p className="text-base">
+            {count} people already there.{" "}
+            <Link href="/register">
+              <a className="text-base font-bold">Join today.</a>
+            </Link>
+          </p>
         </div>
       </div>
     </section>
