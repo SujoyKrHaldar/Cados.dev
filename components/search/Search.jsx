@@ -21,17 +21,16 @@ function Search({ user }) {
   return (
     <section className="pb-16 pt-48 w-full h-full min-h-[92vh] ">
       <div className="absolute w-1/3 h-screen left-0 top-0">
-        <Img
-          src="/assets/patternpad-hero.svg"
-          className="opacity-50 grayscale"
-        />
+        <Img src="/assets/patternpad-hero.svg" className="opacity-50 " />
         <div className="absolute w-full h-full inset-0 bg-gradient-to-l from-white "></div>
         <div className="absolute w-full h-full inset-0 bg-gradient-to-t from-white "></div>
       </div>
 
-      <div className="absolute w-full h-1/2 bg-gray-200 bottom-0 left-0"></div>
+      {user.length > 0 && (
+        <div className="absolute w-full h-1/2 bg-brown-200 bottom-0 left-0"></div>
+      )}
 
-      <div className="container w-full h-full ">
+      <div className="container w-full h-full flex flex-col justify-center">
         <div className="space-y-4">
           <p className="tag">Find new peers</p>
           <form
@@ -39,13 +38,13 @@ function Search({ user }) {
             onSubmit={handelSubmit}
           >
             <div className="flex items-center gap-3">
-              <div className="text-5xl text-gray-400">
+              <div className="text-4xl text-gray-400">
                 <BiSearch />
               </div>
               <input
                 type="text"
                 className="outline-none
-               bg-transparent text-5xl"
+                bg-transparent text-5xl font-semibold placeholder:font-thin"
                 onChange={(e) => setSearchQuery(e.target.value)}
                 value={searchQuery}
                 placeholder="What are you looking ..."
@@ -72,7 +71,7 @@ function Search({ user }) {
               </p>
               <div className="grid grid-cols-4 gap-4">
                 {user.map((dev) => (
-                  <ProfileCard data={dev} />
+                  <ProfileCard data={dev} key={dev.follower_count} />
                 ))}
               </div>
             </div>

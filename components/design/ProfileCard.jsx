@@ -5,13 +5,17 @@ function ProfileCard({ data }) {
   return (
     <div
       className="group w-full h-full overflow-hidden rounded-lg p-3 
-    border-2 border-white shadow-md lg:hover:shadow-xl  bg-white"
+    border-2 border-white shadow-md lg:hover:shadow-xl lg:hover:scale-105 bg-white"
     >
       <div
-        className="w-full h-[260px] bg-black-500 grayscale-0 
-      group-hover:grayscale overflow-hidden rounded-md"
+        className="w-full h-[260px] bg-black-500 
+       overflow-hidden rounded-md"
       >
-        <Img src={data.profile_pic} alt={data.name} className="opacity-80" />
+        <Img
+          src={data.profile_pic}
+          alt={data.name}
+          className="opacity-80 lg:group-hover:scale-105 duration-300"
+        />
       </div>
       <div className="space-y-1 pt-4 px-2">
         {/* <p>{data.name}</p> */}
