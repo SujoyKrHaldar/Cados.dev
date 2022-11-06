@@ -1,6 +1,7 @@
 import Img from "../tools/Img";
 import Button from "../tools/Button";
 import Link from "next/link";
+import { noFormater } from "../tools/NumberFormater";
 
 function Landing({ data, count }) {
   return (
@@ -46,8 +47,8 @@ function Landing({ data, count }) {
         </div>
 
         <div className="absolute w-fit h-fit bottom-0 flex items-center justify-start gap-2">
-          <div className="flex items-center -space-x-3">
-            {data.slice(0, 4).map((dp) => (
+          <div className="flex items-center -space-x-4">
+            {data.map((dp) => (
               <div
                 key={dp.follower_count}
                 className="w-10 h-10 rounded-full border-4 border-white overflow-hidden"
@@ -57,7 +58,7 @@ function Landing({ data, count }) {
             ))}
           </div>
           <p className="text-base">
-            {count} people already there.{" "}
+            {noFormater(count)}+ people already there.{" "}
             <Link href="/register">
               <a className="text-base font-bold">Join today.</a>
             </Link>

@@ -1,16 +1,7 @@
 import Link from "next/link";
 import Img from "../tools/Img";
 import { AiOutlineTwitter } from "react-icons/ai";
-
-function nFormatter(num) {
-  if (num >= 1000000) {
-    return (num / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
-  }
-  if (num >= 1000) {
-    return (num / 1000).toFixed(1).replace(/\.0$/, "") + "K";
-  }
-  return num;
-}
+import { noFormater } from "../tools/NumberFormater";
 
 function Profile({ user, others }) {
   return (
@@ -51,7 +42,7 @@ function Profile({ user, others }) {
                     ))}
                 </div>
                 <p className="font-bold text-lg">
-                  <span>+ {nFormatter(user.follower_count)} </span>
+                  <span>+ {noFormater(user.follower_count)} </span>
                   Followers
                 </p>
               </div>

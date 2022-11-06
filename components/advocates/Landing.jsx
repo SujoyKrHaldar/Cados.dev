@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { BiSearch } from "react-icons/bi";
+import { GrFormClose } from "react-icons/gr";
 import Img from "../tools/Img";
 import Link from "next/link";
+import { noFormater } from "../tools/NumberFormater";
 
 function Landing({ number }) {
   const [searchedQuery, setSearchedQuery] = useState("");
@@ -19,8 +22,13 @@ function Landing({ number }) {
   return (
     <section className="pt-48 pb-16 w-full h-auto">
       <div className="absolute w-[45%] h-full right-0 top-0">
-        <Img src="/assets/hero-background.jpg" position="center" />
-        <div className="absolute w-1/3 h-full inset-0 bg-gradient-to-r from-white"></div>
+        <Img
+          src="/assets/hero-image.png"
+          alt="Hero image"
+          // src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          position="top"
+        />
+        {/* <div className="absolute w-1/2 h-full inset-0 bg-gradient-to-r from-white"></div> */}
       </div>
 
       <div className="absolute w-1/3 h-full left-0 top-0">
@@ -39,7 +47,7 @@ function Landing({ number }) {
           <form
             onSubmit={handelSubmit}
             className="bg-gray-200 flex items-center justify-between gap-2
-            py-1 px-2 rounded-xl max-w-lg border border-gray-400"
+             py-1 px-2 rounded-xl max-w-lg "
           >
             <input
               value={searchedQuery}
@@ -48,17 +56,22 @@ function Landing({ number }) {
               className="flex-1 bg-transparent px-4 py-3 outline-none "
               placeholder="Find your next collaborator"
             />
-            <input
-              type="submit"
-              value="Hunt people"
-              className="py-2 px-5 text-base
-                 bg-black-500 text-white rounded-lg cursor-pointer 
-                 active:scale-95 duration-100 ease-in-out"
-            />
+            {searchedQuery.length > 0 ? (
+              <div
+                onClick={() => setSearchedQuery("")}
+                className="text-2xl p-3 cursor-pointer "
+              >
+                <GrFormClose />
+              </div>
+            ) : (
+              <div className="text-2xl p-3">
+                <BiSearch />
+              </div>
+            )}
           </form>
           <p className="font-thin">
-            Totel <span className="font-semibold">{number}</span> developers
-            already registered.{" "}
+            Total <span className="font-semibold">{noFormater(number)}</span>{" "}
+            developers already registered.{" "}
             <Link href="/register">
               <a className="font-semibold">Join now</a>
             </Link>

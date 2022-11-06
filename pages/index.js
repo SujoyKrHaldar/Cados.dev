@@ -4,7 +4,7 @@ import Landing from "../components/home/Landing";
 import Layout from "../components/layout/Layout";
 
 export const getStaticProps = async () => {
-  const res = await fetch("https://cados.up.railway.app/advocates/?limit=5");
+  const res = await fetch("https://cados.up.railway.app/advocates/?limit=4");
   const userData = await res.json();
   return {
     props: {
