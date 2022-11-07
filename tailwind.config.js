@@ -18,15 +18,9 @@ module.exports = {
     extend: {
       colors: {
         "black-500": "#1c1c1c",
-        "brown-200": "#fadfda",
-        "brown-700": "#aa7560",
         "skin-200": "#ffe8d6",
         "skin-500": "#ddbea9",
         "skin-700": "#cb997e",
-      },
-      backgroundImage: {
-        circle: "url('/assets/circle.svg')",
-        "footer-texture": "url('/img/footer-texture.png')",
       },
     },
   },

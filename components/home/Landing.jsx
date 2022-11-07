@@ -13,7 +13,11 @@ function Landing({ data, count }) {
       </div>
 
       <div className="absolute w-1/3 h-screen left-0 top-0">
-        <Img src="/assets/patternpad-hero.svg" alt="pattern" className="opacity-50" />
+        <Img
+          src="/assets/patternpad-hero.svg"
+          alt="pattern"
+          className="opacity-50"
+        />
         <div className="absolute w-full h-full inset-0 bg-gradient-to-l from-white "></div>
         <div className="absolute w-full h-full inset-0 bg-gradient-to-t from-white "></div>
       </div>
@@ -25,7 +29,7 @@ function Landing({ data, count }) {
             <h1 className="font-bold ">
               Are you looking{" "}
               <span className="block">
-                for <span className="text-brown-700">Collaboration?</span>
+                for <span className="text-skin-700">Collaboration?</span>
               </span>
             </h1>
             <div className="absolute -bottom-8 right-0 h-[100px] w-[380px]">
@@ -48,7 +52,7 @@ function Landing({ data, count }) {
               href="/advocates"
               text="Find people"
               visible="hidden"
-              design="text-black bg-brown-200 duration-200 w-full"
+              design="text-white bg-skin-700 duration-200 w-full"
             />
           </div>
 

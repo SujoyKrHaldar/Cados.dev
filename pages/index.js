@@ -26,7 +26,7 @@ export default function Home({ user, total }) {
 
       <Layout>
         <Landing data={user} count={total} />
-        {/* <AdvocateList data={user} /> */}
+        <AdvocateList data={user} />
       </Layout>
     </>
   );

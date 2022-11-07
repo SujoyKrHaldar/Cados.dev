@@ -24,7 +24,7 @@ function Landing({ number }) {
   return (
     <section className="pt-48 pb-16 w-full h-auto">
       <div className="absolute w-[40%] h-full right-8 top-0">
-        <Img src="/assets/hero-image.png" alt="Hero image" position="top" />
+        <Img src="/assets/hero-image.png" alt="Hero image" position="center" />
       </div>
 
       <div className="absolute w-1/3 h-screen left-0 top-0">
@@ -43,7 +43,7 @@ function Landing({ number }) {
             <p className="tag">Discover peoples</p>
             <h1 className="font-bold z-10">
               The Platform for all{" "}
-              <span className="text-brown-700 block">Developers.</span>
+              <span className="text-skin-700 block">Developers.</span>
             </h1>
             <div className="absolute -bottom-2 -left-4 h-fit w-[380px]">
               <Circle color="#e2b8b1" />
@@ -52,7 +52,7 @@ function Landing({ number }) {
 
           <form
             onSubmit={handelSubmit}
-            className="bg-gray-200 flex items-center justify-between gap-2
+            className="bg-skin-200 flex items-center justify-between gap-2
              py-1 px-2 rounded-xl max-w-lg "
           >
             <input

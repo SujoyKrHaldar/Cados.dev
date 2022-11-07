@@ -24,7 +24,7 @@ function Navbar() {
             <Link href="/search">
               <a
                 className="flex items-center justify-center
-                 text-black-500 text-xl p-3 bg-gray-300 rounded-full"
+                 text-black-500 text-xl p-3 bg-white rounded-full"
               >
                 <BiSearch />
               </a>

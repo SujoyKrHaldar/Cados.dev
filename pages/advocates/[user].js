@@ -1,9 +1,12 @@
 import Head from "next/head";
+import OthersAdvocates from "../../components/advocates/OthersAdvocates";
 import Profile from "../../components/advocates/Profile";
 import Layout from "../../components/layout/Layout";
 
 export const getServerSideProps = async ({ params }) => {
-  const otherRes = await fetch(`https://cados.up.railway.app/advocates`);
+  const otherRes = await fetch(
+    `https://cados.up.railway.app/advocates?limit=13`
+  );
   const res = await fetch(
     `https://cados.up.railway.app/advocates/${params.user}`
   );
@@ -35,6 +38,9 @@ function User({ user, otherData }) {
 
       <Layout>
         <Profile user={user} others={otherData} />
+        {otherData.length > 0 && (
+          <OthersAdvocates data={otherData} existing={user} />
+        )}
       </Layout>
     </>
   );
