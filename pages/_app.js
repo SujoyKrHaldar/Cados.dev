@@ -1,6 +1,7 @@
 import Head from "next/head";
 import "../styles/globals.css";
 import NextNProgress from "nextjs-progressbar";
+import PageTransition from "../components/tools/PageTransition";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -15,8 +16,10 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NextNProgress color="#1c1c1c" options={{ showSpinner: false }} />
-      <Component {...pageProps} />
+      <NextNProgress color="#cb997e" options={{ showSpinner: false }} />
+      <PageTransition>
+        <Component {...pageProps} />
+      </PageTransition>
     </>
   );
 }

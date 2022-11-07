@@ -6,7 +6,7 @@ import { noFormater } from "../tools/NumberFormater";
 function Profile({ user, others }) {
   return (
     <section className="pt-36 pb-28">
-      <div className="absolute w-full h-[32%] inset-0 bg-skin-200">
+      <div className="absolute w-full h-[240px] inset-0 bg-skin-200">
         <div className="absolute w-1/3 h-full left-0 top-0">
           <Img
             src="/assets/patternpad-hero.svg"
@@ -59,18 +59,20 @@ function Profile({ user, others }) {
                 </p>
               </div>
             </div>
-
-            <Link href={user.twitter}>
-              <a
-                className="px-5 py-2 bg-blue-500 rounded-lg text-white w-fit
-            flex items-center gap-3 lg:hover:bg-blue-600"
-              >
-                <div className="text-xl">
-                  <AiOutlineTwitter />
-                </div>
-                <p className="text-lg">Follow </p>
-              </a>
-            </Link>
+            {user?.twitter && (
+              <Link href={user.twitter}>
+                <a
+                  target="_blank"
+                  className="px-5 py-2 bg-blue-500 rounded-lg text-white w-fit
+                  flex items-center gap-3 lg:hover:bg-blue-600"
+                >
+                  <div className="text-xl">
+                    <AiOutlineTwitter />
+                  </div>
+                  <p className="text-lg">Follow </p>
+                </a>
+              </Link>
+            )}
           </div>
         </div>
 

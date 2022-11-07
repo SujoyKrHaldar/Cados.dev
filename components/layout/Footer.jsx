@@ -17,7 +17,7 @@ const links = [
 
 function Footer() {
   return (
-    <footer className="mt-auto py-8 bg-skin-200 border-t-8 border-skin-500">
+    <footer className="mt-auto py-8 bg-skin-500">
       <div className="container space-y-2">
         <div className="flex items-center justify-between gap-4">
           <p className="text-2xl font-bold ">Cados.dev</p>

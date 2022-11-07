@@ -3,7 +3,7 @@ import ProfileCard from "../design/ProfileCard";
 function Advocates({ error, data }) {
   return (
     <section id="all-developers" className="py-16 overflow-hidden bg-white">
-      <div className="absolute w-[95%] h-[80%] right-0 top-0 bg-skin-200"></div>
+      <div className="absolute w-[95%] h-full right-0 top-0 bg-skin-200"></div>
 
       <div className="container w-full h-full">
         {error && <h1>Error</h1>}

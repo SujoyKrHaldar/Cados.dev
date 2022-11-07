@@ -19,7 +19,7 @@ function Search({ user }) {
   };
 
   return (
-    <section className="pt-48 w-full h-full min-h-[92vh] ">
+    <section className="pt-48 w-full h-full min-h-[100vh] ">
       <div className="absolute w-1/3 h-screen left-0 top-0">
         <Img src="/assets/patternpad-hero.svg" className="opacity-50 " />
         <div className="absolute w-full h-full inset-0 bg-gradient-to-l from-white "></div>

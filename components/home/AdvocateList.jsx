@@ -1,6 +1,5 @@
 import ProfileCard from "../design/ProfileCard";
 import Button from "../tools/Button";
-import Arrow from "../svgs/Arrow";
 
 function AdvocateList({ data }) {
   return (
@@ -15,9 +14,6 @@ function AdvocateList({ data }) {
               You are not <span className="font-bold">Alone.</span> You have
               <span className="font-bold"> Peers.</span>
             </h2>
-            <div className="absolute top-[5rem] left-[-7rem] w-[170px] h-fit">
-              <Arrow color="#cb997e" />
-            </div>
           </div>
 
           <div className="space-y-8">
