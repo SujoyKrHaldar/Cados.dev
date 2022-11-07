@@ -1,7 +1,26 @@
 import Link from "next/link";
+import Img from "../tools/Img";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useRouter } from "next/router";
 import { BiSearch } from "react-icons/bi";
 
+const links = [
+  {
+    name: "Home",
+    url: "/",
+  },
+  {
+    name: "Discover people",
+    url: "/advocates",
+  },
+];
+
 function Navbar() {
+  const router = useRouter();
+
+  const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
+    useAuth0();
+
   return (
     <>
       <header className="absolute inset-0 w-full h-fit z-50 py-8">
@@ -12,19 +31,59 @@ function Navbar() {
             </a>
           </Link>
 
-          <nav className="flex items-center gap-6">
-            <Link href="/advocates">
-              <a className="text-base">Discover people</a>
-            </Link>
+          <nav className="flex items-center gap-2">
+            {links.map((data) => (
+              <Link href={data.url} key={data.name}>
+                <a
+                  className={`text-base py-2 px-4 rounded-md hover:bg-white  
+                  border  hover:border-gray-300 ${
+                    router.pathname === data.url
+                      ? " border-skin-700 bg-white"
+                      : "bg-transparent border-transparent"
+                  }`}
+                >
+                  {data.name}
+                </a>
+              </Link>
+            ))}
+            {!isLoading && !isAuthenticated ? (
+              <p
+                onClick={() => loginWithRedirect()}
+                className={`text-base py-2 px-4 rounded-md hover:bg-white  
+                  border border-transparent hover:border-gray-300 cursor-pointer`}
+              >
+                Join us
+              </p>
+            ) : (
+              <div className="flex items-center gap-2">
+                <p
+                  onClick={() =>
+                    logout({
+                      returnTo: process.env.NEXT_PUBLIC_AUTH0_BASE_URL,
+                    })
+                  }
+                  className="text-base py-2 px-4 rounded-md hover:bg-white  
+                  border border-transparent hover:border-gray-300 cursor-pointer"
+                >
+                  Logout
+                </p>
 
-            <Link href="/">
-              <a className="text-base">Join us</a>
-            </Link>
+                <div className="w-11 h-11 bg-black rounded-full overflow-hidden cursor-pointer">
+                  {user?.picture && <Img src={user.picture} alt={user?.name} />}
+                </div>
+              </div>
+            )}
 
             <Link href="/search">
               <a
-                className="flex items-center justify-center
-                 text-black-500 text-xl p-3 bg-white rounded-full"
+                className={`flex items-center justify-center
+                 text-black-500 text-xl p-3  rounded-full border hover:border-gray-300
+                 ${
+                   router.pathname === "/search"
+                     ? " border-skin-700"
+                     : "bg-white border-transparent"
+                 }
+                 `}
               >
                 <BiSearch />
               </a>

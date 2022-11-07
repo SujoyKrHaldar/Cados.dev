@@ -1,5 +1,7 @@
-import Layout from "../components/layout/Layout";
-import Head from "next/head"
+import Head from "next/head";
+import Button from "../components/tools/Button";
+import Img from "../components/tools/Img";
+import Navbar from "../components/layout/Navbar";
 
 function pageNotFound() {
   return (
@@ -10,9 +12,59 @@ function pageNotFound() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
-        <h1>404</h1>
-      </Layout>
+      <Navbar />
+      <section className="py-16 w-full h-screen">
+        <div className="absolute w-[45%] h-full right-0 top-0">
+          <Img
+            src="https://images.unsplash.com/photo-1553690300-93871c6a6654?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt="Hero image"
+          />
+        </div>
+
+        <div className="absolute w-1/3 h-screen left-0 top-0">
+          <Img
+            src="/assets/patternpad-hero.svg"
+            alt="pattern"
+            className="opacity-50"
+          />
+          <div className="absolute w-full h-full inset-0 bg-gradient-to-l from-white "></div>
+          <div className="absolute w-full h-full inset-0 bg-gradient-to-t from-white "></div>
+        </div>
+
+        <div className="container w-full h-full flex items-center">
+          <div className="space-y-4 max-w-[600px]">
+            <div className="space-y-2">
+              <p className="tracking-widest font-thin text-5xl">404</p>
+              <h1 className="font-bold">Page not found!</h1>
+            </div>
+
+            <p className="max-w-md">
+              The page you are looking for was moved, removed, renamed or might
+              never exists.
+            </p>
+
+            <div className="flex items-center gap-4 md:pt-4">
+              <Button
+                href="/"
+                text="Go home"
+                design="bg-black-500 text-white w-full"
+              />
+              <Button
+                href="/advocates"
+                text="Find people"
+                visible="hidden"
+                design="text-white bg-skin-700 duration-200 w-full"
+              />
+            </div>
+          </div>
+
+          <div className="absolute w-fit h-fit bottom-0 ">
+            <p className="text-base">
+              © {new Date().getFullYear()} Cados.dev - All rights reserved.
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

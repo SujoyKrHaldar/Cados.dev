@@ -28,8 +28,8 @@ function AdvocateList({ data }) {
                 <ProfileCard
                   key={dev.follower_count}
                   data={dev}
-                  className="even:translate-y-5 shadow-none 
-                  border-b-4 border-2 border-skin-500 border-b-skin-700"
+                  className=" shadow-none 
+                  border-2 border-skin-700"
                 />
               ))}
             </div>

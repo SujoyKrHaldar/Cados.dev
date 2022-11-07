@@ -55,11 +55,17 @@ function Search({ user }) {
           )}
         </form>
       </div>
+
+      {name && user.length === 0 && (
+        <div className="container pt-4">
+          <p>No peers found.</p>
+        </div>
+      )}
+
       {user.length > 0 && (
         <div className="w-full h-full pt-4 pb-16 bg-skin-200">
           <div className="absolute w-full h-[150px] bg-white inset-0"></div>
           <div className="container">
-            {name && user.length === 0 && <p>No peers found.</p>}
             {user.length > 0 && (
               <div className="space-y-4">
                 <p className="font-thin">

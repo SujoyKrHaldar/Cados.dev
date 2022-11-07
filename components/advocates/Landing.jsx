@@ -23,7 +23,7 @@ function Landing({ number }) {
 
   return (
     <section className="pt-48 pb-16 w-full h-auto">
-      <div className="absolute w-[40%] h-full right-8 top-0">
+      <div className="absolute w-[40%] h-full right-8 top-0 translate-y-10">
         <Img src="/assets/hero-image.png" alt="Hero image" position="center" />
       </div>
 
@@ -78,10 +78,7 @@ function Landing({ number }) {
 
           <p className="font-thin">
             Total <span className="font-semibold">{noFormater(number)}</span>{" "}
-            developers already registered.{" "}
-            <Link href="/register">
-              <a className="font-semibold">Join now</a>
-            </Link>
+            developers already registered. Join now.
           </p>
 
           <div className="absolute bottom-[-11rem] left-[-7rem] w-[185px] h-fit z-10">

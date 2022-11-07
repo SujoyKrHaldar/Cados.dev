@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Img from "../tools/Img";
 
 const links = [
   {
@@ -17,8 +18,11 @@ const links = [
 
 function Footer() {
   return (
-    <footer className="mt-auto py-8 bg-skin-500">
-      <div className="container space-y-2">
+    <footer className="mt-auto bg-skin-200">
+      <div className="w-full h-[80px]">
+        <Img src="/assets/patternpad-footer.svg" alt="Pattern" />
+      </div>
+      <div className="container space-y-2 py-8">
         <div className="flex items-center justify-between gap-4">
           <p className="text-2xl font-bold ">Cados.dev</p>
           <nav className="flex items-center gap-4">

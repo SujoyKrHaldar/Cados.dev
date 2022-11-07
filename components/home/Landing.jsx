@@ -1,6 +1,5 @@
 import Img from "../tools/Img";
 import Button from "../tools/Button";
-import Link from "next/link";
 import { noFormater } from "../tools/NumberFormater";
 import Arrow from "../svgs/Arrow";
 import Underline from "../svgs/Underline";
@@ -55,8 +54,7 @@ function Landing({ data, count }) {
               design="text-white bg-skin-700 duration-200 w-full"
             />
           </div>
-
-          <div className="absolute bottom-2 left-[-7rem] w-[200px] h-fit">
+          <div className="absolute bottom-2 left-[-7rem] w-[200px] h-fit pointer-events-none">
             <Arrow color="#e2b8b1" />
           </div>
         </div>
@@ -73,10 +71,7 @@ function Landing({ data, count }) {
             ))}
           </div>
           <p className="text-base">
-            {noFormater(count)}+ people already there.{" "}
-            <Link href="/register">
-              <a className="text-base font-bold">Join today.</a>
-            </Link>
+            {noFormater(count)}+ people already there. Join today.
           </p>
         </div>
       </div>
