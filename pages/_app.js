@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:type" content="website" />
         <meta property="og:image:alt" content="" />
         <link rel="canonical" href="https://cados-dev.vercel.app/" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Auth0Provider
