@@ -40,7 +40,9 @@ function Footer() {
           <p className="text-base">
             Designed by{" "}
             <Link href="https://sujoykh.vercel.app">
-              <a className="text-base">Sujoy</a>
+              <a target="_blank" className="text-base font-bold">
+                Sujoy
+              </a>
             </Link>
           </p>
         </div>

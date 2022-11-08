@@ -1,23 +1,16 @@
 import Head from "next/head";
-import OthersAdvocates from "../../components/advocates/OthersAdvocates";
 import Profile from "../../components/advocates/Profile";
 import Layout from "../../components/layout/Layout";
 
 export const getServerSideProps = async ({ params }) => {
   const otherRes = await fetch(
-    `https://cados.up.railway.app/advocates?limit=13`
+    `https://cados.up.railway.app/advocates?limit=4`
   );
   const res = await fetch(
     `https://cados.up.railway.app/advocates/${params.user}`
   );
   const userData = await res.json();
   const otherData = await otherRes.json();
-
-  if (!userData) {
-    return {
-      notFound: true,
-    };
-  }
 
   return {
     props: {
@@ -37,9 +30,6 @@ function User({ user, otherData }) {
 
       <Layout>
         <Profile user={user} others={otherData} />
-        {otherData.length > 0 && (
-          <OthersAdvocates data={otherData} existing={user} />
-        )}
       </Layout>
     </>
   );

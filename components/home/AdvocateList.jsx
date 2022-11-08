@@ -24,9 +24,9 @@ function AdvocateList({ data }) {
             />
 
             <div className="flex items-center gap-4">
-              {data.map((dev) => (
+              {data.map((dev, index) => (
                 <ProfileCard
-                  key={dev.follower_count}
+                  key={dev?.id || index}
                   data={dev}
                   className=" shadow-none 
                   border-2 border-skin-700"

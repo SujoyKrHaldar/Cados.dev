@@ -1,28 +1,25 @@
 import ProfileCard from "../design/ProfileCard";
+import Pagination from "../tools/Pagination";
 
-function Advocates({ error, data }) {
+function Advocates({ data, pagination }) {
   return (
     <section id="all-developers" className="py-16 overflow-hidden bg-white">
       <div className="absolute w-[95%] h-full right-0 top-0 bg-skin-200"></div>
 
-      <div className="container w-full h-full">
-        {error && <h1>Error</h1>}
-        {data && !error ? (
-          <div className="space-y-2">
-            <p className="tag">All Developers</p>
-            <h2>
-              <span className="font-bold">People</span> who are Enjoying.
-            </h2>
+      <div className="container w-full h-full space-y-10">
+        <div className="space-y-2">
+          <p className="tag">All Developers</p>
+          <h2>
+            <span className="font-bold">People</span> who are Enjoying.
+          </h2>
 
-            <div className="grid grid-cols-4 gap-4 pt-4">
-              {data.map((data) => (
-                <ProfileCard data={data} key={data.follower_count} />
-              ))}
-            </div>
+          <div className="grid grid-cols-4 gap-4 pt-4">
+            {data.map((data, index) => (
+              <ProfileCard data={data} key={data?.id || index} />
+            ))}
           </div>
-        ) : (
-          <h1>Loading</h1>
-        )}
+        </div>
+        <Pagination pagination={pagination} />
       </div>
     </section>
   );

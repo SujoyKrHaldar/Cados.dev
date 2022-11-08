@@ -1,24 +1,23 @@
 import Head from "next/head";
-import { getData } from "../../action/fetcher";
 import Advocates from "../../components/advocates/Advocates";
 import Landing from "../../components/advocates/Landing";
 import Layout from "../../components/layout/Layout";
 
-export const getStaticProps = async () => {
-  const res = await fetch("https://cados.up.railway.app/advocates?limit=8");
+export const getServerSideProps = async ({ query: { page = 1 } }) => {
+  const res = await fetch(
+    `https://cados.up.railway.app/advocates?page=${page}&limit=20`
+  );
   const userData = await res.json();
   return {
     props: {
+      pagination: userData.pagination,
       total: userData.total,
       data: userData.advocates,
     },
-    revalidate: 10,
   };
 };
 
-function advocates({ total, data: initialData }) {
-  const { data, error } = getData(initialData);
-
+function advocates({ total, data, pagination }) {
   return (
     <>
       <Head>
@@ -28,7 +27,7 @@ function advocates({ total, data: initialData }) {
 
       <Layout>
         <Landing number={total} />
-        <Advocates data={data} error={error} number={total} />
+        <Advocates data={data} number={total} pagination={pagination} />
       </Layout>
     </>
   );

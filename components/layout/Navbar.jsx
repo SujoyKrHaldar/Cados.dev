@@ -21,6 +21,10 @@ function Navbar() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
 
+  // console.log({"user " : user});
+  // console.log("isAuth " + isAuthenticated);
+  // console.log("loading " + isLoading);
+
   return (
     <>
       <header className="absolute inset-0 w-full h-fit z-50 py-8">
@@ -68,7 +72,7 @@ function Navbar() {
                   Logout
                 </p>
 
-                <div className="w-11 h-11 bg-black rounded-full overflow-hidden cursor-pointer">
+                <div className="w-11 h-11 bg-skin-500 rounded-full overflow-hidden cursor-pointer">
                   {user?.picture && <Img src={user.picture} alt={user?.name} />}
                 </div>
               </div>

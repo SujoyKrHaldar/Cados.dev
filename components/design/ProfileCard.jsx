@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Img from "../tools/Img";
 import { BsArrowRight } from "react-icons/bs";
+import { AiOutlineTwitter } from "react-icons/ai";
 
 function ProfileCard({ data, className = "" }) {
   return (
@@ -9,8 +10,20 @@ function ProfileCard({ data, className = "" }) {
      shadow-md lg:hover:shadow-xl lg:hover:scale-105 bg-white
     flex flex-col ${className}`}
     >
+      {data.twitter && (
+        <Link href={data.twitter}>
+          <a
+            target="_blank"
+            className="absolute top-4 right-4 p-1 bg-white rounded-full w-fit text-xl
+                  flex items-center text-blue-500 z-10"
+          >
+            <AiOutlineTwitter />
+          </a>
+        </Link>
+      )}
+
       <div
-        className="w-full h-[260px] bg-black-500 
+        className="w-full h-[260px] bg-black-500
        overflow-hidden rounded-md"
       >
         <Img

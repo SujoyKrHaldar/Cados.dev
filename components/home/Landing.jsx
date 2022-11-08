@@ -1,10 +1,14 @@
 import Img from "../tools/Img";
 import Button from "../tools/Button";
+import { useAuth0 } from "@auth0/auth0-react";
 import { noFormater } from "../tools/NumberFormater";
+import { BsArrowRight } from "react-icons/bs";
 import Arrow from "../svgs/Arrow";
 import Underline from "../svgs/Underline";
 
 function Landing({ data, count }) {
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+
   return (
     <section className="py-16 w-full h-screen">
       <div className="absolute w-[45%] h-full right-0 top-0">
@@ -24,7 +28,10 @@ function Landing({ data, count }) {
       <div className="container w-full h-full flex items-center">
         <div className="space-y-4 max-w-[600px]">
           <div className="space-y-4">
-            <p className="tag">Hey welcome</p>
+            <p className="tag">
+              Hey{" "}
+              {user?.nickname || user?.given_name || user?.name || "welcome"}
+            </p>
             <h1 className="font-bold ">
               Are you looking{" "}
               <span className="block">
@@ -42,11 +49,20 @@ function Landing({ data, count }) {
           </p>
 
           <div className="flex items-center gap-4 md:pt-4">
-            <Button
-              href="/register"
-              text="Get started"
-              design="bg-black-500 text-white w-full"
-            />
+            {!isAuthenticated && (
+              <div
+                onClick={() => loginWithRedirect()}
+                className="group w-fit flex items-center justify-center gap-4 
+                duration-100 ease-in-out bg-black-500 text-white rounded-xl 
+                md:rounded-lg py-4 px-9 md:py-3 md:px-8 active:scale-95 cursor-pointer"
+              >
+                <p className="text-base">Get started</p>
+                <div className="flex items-center text-xl">
+                  <BsArrowRight />
+                </div>
+              </div>
+            )}
+
             <Button
               href="/advocates"
               text="Find people"
@@ -71,7 +87,7 @@ function Landing({ data, count }) {
             ))}
           </div>
           <p className="text-base">
-            {noFormater(count)}+ people already there. Join today.
+            {noFormater(count)}+ people already there.
           </p>
         </div>
       </div>

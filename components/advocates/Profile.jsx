@@ -2,8 +2,11 @@ import Link from "next/link";
 import Img from "../tools/Img";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { noFormater } from "../tools/NumberFormater";
+import { RiArrowLeftSLine } from "react-icons/ri";
+import { useRouter } from "next/router";
 
 function Profile({ user, others }) {
+  const router = useRouter();
   return (
     <section className="pt-36 pb-28">
       <div className="absolute w-full h-[240px] inset-0 bg-skin-200">
@@ -43,7 +46,6 @@ function Profile({ user, others }) {
                 <div className="flex items-center -space-x-3">
                   {others
                     .filter((dp) => dp.follower_count != user.follower_count)
-                    .slice(0, 4)
                     .map((dp) => (
                       <div
                         key={dp.follower_count}
@@ -59,20 +61,30 @@ function Profile({ user, others }) {
                 </p>
               </div>
             </div>
-            {user?.twitter && (
-              <Link href={user.twitter}>
-                <a
-                  target="_blank"
-                  className="px-5 py-2 bg-blue-500 rounded-lg text-white w-fit
-                  flex items-center gap-3 lg:hover:bg-blue-600"
-                >
-                  <div className="text-xl">
+
+            <div className="flex items-center gap-2">
+              <div
+                onClick={() => router.back()}
+                className="p-3 py-2 pr-5 bg-gray-200 rounded-md w-fit
+                flex items-center gap-1 cursor-pointer lg:hover:bg-gray-300"
+              >
+                <RiArrowLeftSLine />
+                <p className="text-base"> Go back</p>
+              </div>
+
+              {user?.twitter && (
+                <Link href={user.twitter}>
+                  <a
+                    target="_blank"
+                    className="p-3 py-2 pr-4 bg-blue-500 rounded-md text-white w-fit
+                  flex items-center gap-1 lg:hover:bg-blue-600"
+                  >
                     <AiOutlineTwitter />
-                  </div>
-                  <p className="text-lg">Follow </p>
-                </a>
-              </Link>
-            )}
+                    <p className="text-base">Follow </p>
+                  </a>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
 

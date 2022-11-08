@@ -45,7 +45,7 @@ function Landing({ number }) {
               The Platform for all{" "}
               <span className="text-skin-700 block">Developers.</span>
             </h1>
-            <div className="absolute -bottom-2 -left-4 h-fit w-[380px]">
+            <div className="absolute -bottom-2 -left-4 h-fit w-[380px] opacity-50">
               <Circle color="#e2b8b1" />
             </div>
           </div>
@@ -78,7 +78,7 @@ function Landing({ number }) {
 
           <p className="font-thin">
             Total <span className="font-semibold">{noFormater(number)}</span>{" "}
-            developers already registered. Join now.
+            developers already registered.
           </p>
 
           <div className="absolute bottom-[-11rem] left-[-7rem] w-[185px] h-fit z-10">
