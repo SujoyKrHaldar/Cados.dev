@@ -5,6 +5,7 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { useRouter } from "next/router";
 import { BiSearch } from "react-icons/bi";
 import NavbarMob from "./NavbarMob";
+import { useState } from "react";
 
 const links = [
   {
@@ -19,6 +20,7 @@ const links = [
 
 function Navbar() {
   const router = useRouter();
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
@@ -26,6 +28,10 @@ function Navbar() {
   // console.log({"user " : user});
   // console.log("isAuth " + isAuthenticated);
   // console.log("loading " + isLoading);
+
+  const handelClick = () => {
+    isMenuOpen ? setMenuOpen(false) : setMenuOpen(true);
+  };
 
   return (
     <>
@@ -55,8 +61,8 @@ function Navbar() {
             {!isLoading && !isAuthenticated ? (
               <p
                 onClick={() => loginWithRedirect()}
-                className={`md:text-base py-2 px-4 rounded-md hover:bg-white  
-                  border border-transparent hover:border-gray-300 cursor-pointer`}
+                className={`md:text-base py-2 px-4 rounded-md md:hover:bg-white  
+                  border border-transparent md:hover:border-gray-300 cursor-pointer`}
               >
                 Join us
               </p>
@@ -68,13 +74,13 @@ function Navbar() {
                       returnTo: process.env.NEXT_PUBLIC_AUTH0_BASE_URL,
                     })
                   }
-                  className="text-base py-2 px-4 rounded-md lg:hover:bg-white  
+                  className="hidden md:block text-base py-2 px-4 rounded-md lg:hover:bg-white  
                   border border-transparent lg:hover:border-gray-300 cursor-pointer"
                 >
                   Logout
                 </p>
 
-                <div className="w-11 h-11 bg-skin-500 rounded-full overflow-hidden cursor-pointer">
+                <div className="w-[43px] h-[43px] bg-skin-500 rounded-full overflow-hidden cursor-pointer">
                   {user?.picture && <Img src={user.picture} alt={user?.name} />}
                 </div>
               </div>
@@ -82,7 +88,7 @@ function Navbar() {
 
             <Link href="/search">
               <a
-                className={`flex items-center justify-center
+                className={` hidden md:flex items-center justify-center
                  text-black-500 text-4xl md:text-xl p-3  rounded-full border hover:border-gray-300
                  ${
                    router.pathname === "/search"
@@ -96,9 +102,9 @@ function Navbar() {
             </Link>
 
             <div
+              onClick={handelClick}
               className="md:hidden flex items-center justify-center bg-white
-                 text-black-500 text-4xl p-3 rounded-full cursor-pointer
-                 "
+                 text-black-500 text-4xl p-3 rounded-full cursor-pointer"
             >
               <BiMenuAltRight />
             </div>
@@ -106,7 +112,7 @@ function Navbar() {
         </div>
       </header>
 
-      {/* <NavbarMob /> */}
+      <NavbarMob isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
     </>
   );
 }
