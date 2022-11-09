@@ -14,8 +14,8 @@ function ProfileCard({ data, className = "" }) {
         <Link href={data.twitter}>
           <a
             target="_blank"
-            className="absolute top-4 right-4 p-1 bg-white rounded-full w-fit text-xl
-                  flex items-center text-blue-500 z-10"
+            className="hidden absolute top-4 right-4 p-1 bg-white rounded-full w-fit text-xl
+                  md:flex items-center text-blue-500 z-10"
           >
             <AiOutlineTwitter />
           </a>
@@ -23,20 +23,21 @@ function ProfileCard({ data, className = "" }) {
       )}
 
       <div
-        className="w-full h-[260px] bg-black-500
+        className="w-full h-[142px] md:h-[240px] lg:h-[190px] xl:h-[260px] bg-black-500
        overflow-hidden rounded-md"
       >
         <Img
           src={data.profile_pic}
           alt={data.name}
+          position="top"
           className="opacity-80 lg:group-hover:scale-105 duration-100"
         />
       </div>
 
       <div className="flex-1 flex flex-col justify-between gap-2 h-full pt-4 pb-2 px-2">
-        <div className="">
+        <div>
           <p className="text-base text-gray-500">{data.name}</p>
-          <p className="text-xl font-thin">
+          <p className="md:text-xl font-thin">
             @
             <span className="font-semibold first-letter:uppercase">
               {data.username}

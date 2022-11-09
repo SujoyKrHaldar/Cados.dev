@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { useRouter } from "next/router";
 import { BiSearch } from "react-icons/bi";
+import NavbarMob from "./NavbarMob";
 
 const links = [
   {
@@ -104,6 +105,8 @@ function Navbar() {
           </nav>
         </div>
       </header>
+
+      {/* <NavbarMob /> */}
     </>
   );
 }

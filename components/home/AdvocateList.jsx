@@ -3,8 +3,8 @@ import Button from "../tools/Button";
 
 function AdvocateList({ data }) {
   return (
-    <section className="pt-16 pb-32 w-full h-auto bg-white">
-      <div className="absolute w-[95%] h-[60%] right-0 top-0 bg-gradient-to-br from-skin-200 to-skin-500"></div>
+    <section className="py-16 w-full h-auto bg-white">
+      <div className="absolute w-full lg:w-[95%] h-[60%] right-0 top-0 bg-gradient-to-br from-skin-200 to-skin-500"></div>
 
       <div className="container w-full h-full">
         <div className="space-y-6">
@@ -23,7 +23,7 @@ function AdvocateList({ data }) {
               design="text-black bg-white w-full"
             />
 
-            <div className="flex items-center gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {data.map((dev, index) => (
                 <ProfileCard
                   key={dev?.id || index}
