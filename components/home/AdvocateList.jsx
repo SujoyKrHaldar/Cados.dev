@@ -1,4 +1,6 @@
 import ProfileCard from "../design/ProfileCard";
+import ProfileCardX from "../design/ProfileCardX";
+
 import Button from "../tools/Button";
 
 function AdvocateList({ data }) {
@@ -23,14 +25,31 @@ function AdvocateList({ data }) {
               design="text-black bg-white w-full"
             />
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {data.map((dev, index) => (
                 <ProfileCard
                   key={dev?.id || index}
                   data={dev}
                   className=" shadow-none 
-                  border-2 border-skin-700"
+                  border-2 border-skin-700 md:last:hidden lg:last:block"
                 />
+              ))}
+            </div> */}
+
+            <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {data.map((dev, index) => (
+                <ProfileCard
+                  key={dev?.id || index}
+                  data={dev}
+                  className=" shadow-none 
+                  border-2 border-skin-700 md:last:hidden lg:last:block"
+                />
+              ))}
+            </div>
+
+            <div className="md:hidden space-y-4">
+              {data.map((dev, index) => (
+                <ProfileCardX key={dev?.id || index} data={dev} />
               ))}
             </div>
           </div>

@@ -8,8 +8,8 @@ import { useRouter } from "next/router";
 function Profile({ user, others }) {
   const router = useRouter();
   return (
-    <section className="pt-36 pb-28">
-      <div className="absolute w-full h-[240px] inset-0 bg-skin-200">
+    <section className="pt-36 pb-16">
+      <div className="absolute w-full h-[180px] lg:h-[240px] inset-0 bg-skin-200">
         <div className="absolute w-1/3 h-full left-0 top-0">
           <Img
             src="/assets/patternpad-hero.svg"
@@ -25,8 +25,8 @@ function Profile({ user, others }) {
       <div className="container">
         <div className="flex items-end gap-8 mb-8">
           <div
-            className="flex-0 w-[230px] h-[270px] bg-white overflow-hidden 
-          rounded-3xl border-8 border-white shadow-md shadow-brown-200"
+            className="flex-0 w-[180px] h-[180px] md:w-[230px] md:h-[270px] bg-white overflow-hidden 
+          rounded-full md:rounded-3xl border-8 border-white shadow-md shadow-brown-200"
           >
             <Img
               src={user.profile_pic}
@@ -36,7 +36,10 @@ function Profile({ user, others }) {
             />
           </div>
 
-          <div className="flex-1 py-6 flex items-start gap-2 justify-between w-full">
+          <div
+            className="flex-1 py-6 space-y-4 lg:space-y-0 lg:flex 
+          items-start gap-2 justify-between w-full"
+          >
             <div className="space-y-1">
               <p className="font-bold text-4xl first-letter:uppercase">
                 {user.name}
@@ -88,7 +91,7 @@ function Profile({ user, others }) {
           </div>
         </div>
 
-        <div className="p-8 bg-gray-200 rounded-2xl max-w-xl space-y-2">
+        <div className="lg:p-8 lg:bg-gray-200 lg:rounded-2xl max-w-lg md:max-w-xl space-y-2">
           <p className="text-3xl font-bold">Bio</p>
           <p className="text-gray-600">{user.bio}</p>
         </div>

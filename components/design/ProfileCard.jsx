@@ -23,7 +23,7 @@ function ProfileCard({ data, className = "" }) {
       )}
 
       <div
-        className="w-full h-[142px] md:h-[240px] lg:h-[190px] xl:h-[260px] bg-black-500
+        className="w-full h-[142px] md:h-[160px] lg:h-[190px] xl:h-[260px] bg-black-500
        overflow-hidden rounded-md"
       >
         <Img
