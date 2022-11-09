@@ -38,7 +38,7 @@ function Search({ user }) {
           <div className="flex items-center text-3xl">
             <RiArrowLeftSLine />
           </div>
-          <p className="md:text-base"> Go back</p>
+          <p className="md:text-base">Go back</p>
         </div>
 
         <p className="tag">Find new peers</p>
@@ -74,8 +74,7 @@ function Search({ user }) {
       )}
 
       {user.length > 0 && (
-        <div className="w-full h-full pt-4 pb-16 bg-skin-200">
-          <div className="absolute w-full h-[150px] bg-white inset-0"></div>
+        <div className="w-full h-full pt-4 pb-16">
           <div className="container">
             {user.length > 0 && (
               <div className="space-y-4">
@@ -85,7 +84,12 @@ function Search({ user }) {
                 </p>
                 <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {user.map((dev) => (
-                    <ProfileCard data={dev} key={dev.follower_count} />
+                    <ProfileCard
+                      data={dev}
+                      key={dev.follower_count}
+                      className="shadow-none 
+                      border border-black-500"
+                    />
                   ))}
                 </div>
                 <div className="md:hidden space-y-4">
