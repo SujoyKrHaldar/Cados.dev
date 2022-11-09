@@ -51,12 +51,12 @@ function Landing({ data, count }) {
             </div>
           </div>
 
-          <p className="max-w-md">
+          <p className="max-w-lg md:max-w-md">
             You are at right place. At Cados we are here to help you to find and
             collaborate with other developer advocates from many companies.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 md:pt-4">
+          <div className="flex flex-wrap items-center gap-4 pt-4">
             {!isAuthenticated && (
               <div
                 onClick={() => loginWithRedirect()}
