@@ -40,7 +40,7 @@ function Landing({ data, count }) {
               Hey{" "}
               {user?.nickname || user?.given_name || user?.name || "welcome"}
             </p>
-            <h1 className="font-bold ">
+            <h1 className="font-bold">
               Are you looking{" "}
               <span className="sm:block">
                 for <span className="text-skin-700">Collaboration?</span>
