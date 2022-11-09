@@ -1,4 +1,5 @@
 import ProfileCard from "../design/ProfileCard";
+import ProfileCardX from "../design/ProfileCardX";
 import { BiSearch } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
 import { useRouter } from "next/router";
@@ -28,31 +29,28 @@ function Search({ user }) {
 
       <div className="container w-full h-full space-y-4">
         <p className="tag">Find new peers</p>
-        <form
-          className="flex items-center gap-4 justify-between"
-          onSubmit={handelSubmit}
-        >
+        <form className="flex items-center gap-4 " onSubmit={handelSubmit}>
           <div className="flex items-center gap-3">
-            <div className="text-4xl text-gray-400">
-              <BiSearch />
-            </div>
+            {searchQuery ? (
+              <div
+                onClick={() => setSearchQuery("")}
+                className="cursor-pointer text-3xl p-2 bg-gray-200 rounded-md"
+              >
+                <IoClose />
+              </div>
+            ) : (
+              <div className="text-4xl text-gray-400">
+                <BiSearch />
+              </div>
+            )}
             <input
               type="text"
-              className="outline-none
-                bg-transparent text-5xl font-semibold placeholder:font-thin"
+              className="outline-none bg-transparent text-5xl font-semibold placeholder:font-thin"
               onChange={(e) => setSearchQuery(e.target.value)}
               value={searchQuery}
               placeholder="What are you looking ..."
             />
           </div>
-          {searchQuery && (
-            <div
-              onClick={() => setSearchQuery("")}
-              className="text-3xl p-2 bg-skin-500 text-white w-fit cursor-pointer rounded-full"
-            >
-              <IoClose />
-            </div>
-          )}
         </form>
       </div>
 
@@ -72,9 +70,14 @@ function Search({ user }) {
                   <span className="font-semibold">Search result</span> -{" "}
                   {user.length} profile found.
                 </p>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {user.map((dev) => (
                     <ProfileCard data={dev} key={dev.follower_count} />
+                  ))}
+                </div>
+                <div className="md:hidden space-y-4">
+                  {user.map((dev, index) => (
+                    <ProfileCardX key={dev?.id || index} data={dev} />
                   ))}
                 </div>
               </div>

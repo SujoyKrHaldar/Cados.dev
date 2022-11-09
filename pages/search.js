@@ -8,7 +8,6 @@ export const getServerSideProps = async ({ query }) => {
     `https://cados.up.railway.app/advocates?query=${name}`
   );
   const userData = await res.json();
-  console.log(userData);
 
   if (!userData) {
     return {

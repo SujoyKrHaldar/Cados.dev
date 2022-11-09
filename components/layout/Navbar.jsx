@@ -86,7 +86,7 @@ function Navbar() {
                  text-black-500 text-4xl md:text-xl p-3  rounded-full border hover:border-gray-300
                  ${
                    router.pathname === "/search"
-                     ? " border-skin-700"
+                     ? "border-white md:border-skin-700"
                      : "bg-white border-transparent"
                  }
                  `}

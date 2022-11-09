@@ -59,19 +59,19 @@ function Landing({ number }) {
               value={searchedQuery}
               onChange={(e) => setSearchedQuery(e.target.value)}
               type="text"
-              className="flex-1 bg-transparent px-6 md:px-4 py-5 md:py-3 outline-none 
-              placeholder:text-black-500 placeholder:text-xl md:placeholder:text-base"
+              className="flex-1 bg-transparent px-6 md:px-4 py-5 md:py-3 outline-none text-3xl md:text-xl
+              placeholder:text-black-500 placeholder:text-2xl md:placeholder:text-base"
               placeholder="Find your next collaborator"
             />
             {searchedQuery.length > 0 ? (
               <div
                 onClick={() => setSearchedQuery("")}
-                className="text-2xl p-3 cursor-pointer "
+                className="text-4xl md:text-2xl p-3 cursor-pointer "
               >
                 <GrFormClose />
               </div>
             ) : (
-              <div className="text-2xl p-3">
+              <div className="text-4xl md:text-2xl p-3">
                 <BiSearch />
               </div>
             )}

@@ -1,6 +1,5 @@
 import ProfileCard from "../design/ProfileCard";
 import ProfileCardX from "../design/ProfileCardX";
-
 import Pagination from "../tools/Pagination";
 
 function Advocates({ data, pagination }) {
@@ -15,7 +14,7 @@ function Advocates({ data, pagination }) {
             <span className="font-bold">People</span> who are Enjoying.
           </h2>
 
-          <div className="hidden sm:grid  grid-cols-3 lg:grid-cols-4 gap-4 pt-4">
+          <div className="hidden md:grid  grid-cols-3 lg:grid-cols-4 gap-4 pt-4">
             {data.map((data, index) => (
               <ProfileCard data={data} key={data?.id || index} />
             ))}

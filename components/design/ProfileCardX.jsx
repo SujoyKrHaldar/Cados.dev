@@ -5,11 +5,11 @@ import { BsArrowRight } from "react-icons/bs";
 function ProfileCardX({ data }) {
   return (
     <div
-      className="group w-full h-full overflow-hidden p-2 bg-white rounded-2xl
-    flex items-center gap-4 border-2 border-skin-700"
+      className="group w-full overflow-hidden p-2 bg-white rounded-2xl
+    flex items-center gap-4 border-2 border-skin-700 h-auto min-h-[100px]"
     >
       <div
-        className="w-[80px] h-[80px] bg-black-500
+        className="w-[100px] min-h-[100px] bg-black-500
        overflow-hidden rounded-xl"
       >
         <Img
@@ -19,10 +19,10 @@ function ProfileCardX({ data }) {
         />
       </div>
 
-      <div className="flex-1 flex flex-col justify-between gap-2 h-full p-2">
+      <div className="flex-1 flex flex-col justify-between gap-2 h-full py-2 px-3">
         <div>
-          <p className="text-base text-gray-500">{data.name}</p>
-          <p className="md:text-xl font-thin">
+          <p className="md:text-base text-gray-500">{data.name}</p>
+          <p className="text-3xl md:text-xl font-thin">
             @
             <span className="font-semibold first-letter:uppercase">
               {data.username}
@@ -32,10 +32,10 @@ function ProfileCardX({ data }) {
 
         <div className="flex items-center justify-between gap-4">
           <Link href={`/advocates/${data.username}`}>
-            <a className="text-base text-black ">Visit profile</a>
+            <a className="md:text-base text-black ">Visit profile</a>
           </Link>
 
-          <div className="text-white p-2 bg-skin-700 rounded-lg">
+          <div className="text-white text-2xl p-3 bg-skin-700 rounded-lg">
             <BsArrowRight />
           </div>
         </div>
