@@ -114,7 +114,7 @@ function Pagination({ pagination }) {
         <div className=" md:flex items-center justify-between gap-4">
           {query.page && <p>Currently at page no. {query.page}</p>}
 
-          <p>Total : {pagination.total_pages}</p>
+          <p>Total pages: {pagination.total_pages}</p>
         </div>
       </div>
     </>

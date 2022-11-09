@@ -2,6 +2,7 @@ import ProfileCard from "../design/ProfileCard";
 import ProfileCardX from "../design/ProfileCardX";
 import { BiSearch } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
+import { RiArrowLeftSLine } from "react-icons/ri";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Img from "../tools/Img";
@@ -28,8 +29,20 @@ function Search({ user }) {
       </div>
 
       <div className="container w-full h-full space-y-4">
+        <div
+          onClick={() => router.back()}
+          className="fixed bottom-16 right-8 flex items-center justify-center gap-4 md:hidden
+               bg-black-500 text-white rounded-xl z-10 
+                 py-4 px-9 pl-5 active:scale-95 cursor-pointer"
+        >
+          <div className="flex items-center text-3xl">
+            <RiArrowLeftSLine />
+          </div>
+          <p className="md:text-base"> Go back</p>
+        </div>
+
         <p className="tag">Find new peers</p>
-        <form className="flex items-center gap-4 " onSubmit={handelSubmit}>
+        <form className="flex items-center gap-4" onSubmit={handelSubmit}>
           <div className="flex items-center gap-3">
             {searchQuery ? (
               <div

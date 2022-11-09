@@ -18,7 +18,7 @@ const links = [
 
 function Footer() {
   return (
-    <footer className="mt-auto bg-skin-200">
+    <footer className="mt-auto bg-skin-200 z-10">
       <div className="w-full h-[50px] md:h-[80px]">
         <Img src="/assets/patternpad-footer.svg" alt="Pattern" />
       </div>
