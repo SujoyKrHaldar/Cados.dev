@@ -42,7 +42,7 @@ function Landing({ data, count }) {
             </p>
             <h1 className="font-bold">
               Are you looking{" "}
-              <span className="sm:block">
+              <span className="block">
                 for <span className="text-skin-700">Collaboration?</span>
               </span>
             </h1>
