@@ -94,7 +94,7 @@ function Landing({ data, count }) {
               </div>
             ))}
           </div>
-          <p className="text-base">
+          <p className="md:text-base">
             {noFormater(count)}+ people already there.
           </p>
         </div>
