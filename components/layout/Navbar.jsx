@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Img from "../tools/Img";
 import { useAuth0 } from "@auth0/auth0-react";
+import { BiMenuAltRight } from "react-icons/bi";
 import { useRouter } from "next/router";
 import { BiSearch } from "react-icons/bi";
 
@@ -39,7 +40,7 @@ function Navbar() {
             {links.map((data) => (
               <Link href={data.url} key={data.name}>
                 <a
-                  className={`text-base py-2 px-4 rounded-md hover:bg-white  
+                  className={`hidden md:block text-base py-2 px-4 rounded-md hover:bg-white  
                   border  hover:border-gray-300 ${
                     router.pathname === data.url
                       ? " border-skin-700 bg-white"
@@ -53,7 +54,7 @@ function Navbar() {
             {!isLoading && !isAuthenticated ? (
               <p
                 onClick={() => loginWithRedirect()}
-                className={`text-base py-2 px-4 rounded-md hover:bg-white  
+                className={`md:text-base py-2 px-4 rounded-md hover:bg-white  
                   border border-transparent hover:border-gray-300 cursor-pointer`}
               >
                 Join us
@@ -66,8 +67,8 @@ function Navbar() {
                       returnTo: process.env.NEXT_PUBLIC_AUTH0_BASE_URL,
                     })
                   }
-                  className="text-base py-2 px-4 rounded-md hover:bg-white  
-                  border border-transparent hover:border-gray-300 cursor-pointer"
+                  className="text-base py-2 px-4 rounded-md lg:hover:bg-white  
+                  border border-transparent lg:hover:border-gray-300 cursor-pointer"
                 >
                   Logout
                 </p>
@@ -81,7 +82,7 @@ function Navbar() {
             <Link href="/search">
               <a
                 className={`flex items-center justify-center
-                 text-black-500 text-xl p-3  rounded-full border hover:border-gray-300
+                 text-black-500 text-4xl md:text-xl p-3  rounded-full border hover:border-gray-300
                  ${
                    router.pathname === "/search"
                      ? " border-skin-700"
@@ -92,6 +93,14 @@ function Navbar() {
                 <BiSearch />
               </a>
             </Link>
+
+            <div
+              className="md:hidden flex items-center justify-center bg-white
+                 text-black-500 text-4xl p-3 rounded-full cursor-pointer
+                 "
+            >
+              <BiMenuAltRight />
+            </div>
           </nav>
         </div>
       </header>

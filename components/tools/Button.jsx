@@ -18,7 +18,7 @@ function Button({
            duration-100 ease-in-out ${design} 
            rounded-xl md:rounded-lg text-white inline-block py-4 px-9 md:py-3 md:px-8 active:scale-95`}
         >
-          <p className="text-base">{text}</p>
+          <p className="md:text-base">{text}</p>
           <div className={`flex items-center text-xl ${visible} `}>{icon}</div>
         </a>
       </Link>

@@ -64,7 +64,7 @@ function Landing({ data, count }) {
                 duration-100 ease-in-out bg-black-500 text-white rounded-xl 
                 md:rounded-lg py-4 px-9 md:py-3 md:px-8 active:scale-95 cursor-pointer"
               >
-                <p className="text-base">Get started</p>
+                <p className="md:text-base">Get started</p>
                 <div className="flex items-center text-xl">
                   <BsArrowRight />
                 </div>
