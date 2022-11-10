@@ -32,24 +32,6 @@ body {
   font-size: 100%;
 }
 
-@media screen and (max-width: 1280px) {
-  html {
-    font-size: 95%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 75%;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  html {
-    font-size: 66.5%;
-  }
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
