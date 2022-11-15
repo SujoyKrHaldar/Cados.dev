@@ -2,7 +2,6 @@ import ProfileCard from "../design/ProfileCard";
 import ProfileCardX from "../design/ProfileCardX";
 import { BiSearch } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
-import { RiArrowLeftSLine } from "react-icons/ri";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Img from "../tools/Img";

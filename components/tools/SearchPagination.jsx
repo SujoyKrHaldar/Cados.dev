@@ -8,7 +8,7 @@ function SearchPagination({ pagination }) {
     <>
       <div className="flex items-center gap-3">
         {/* Previous page */}
-        {pagination.has_previous && (
+        {pagination.has_previous && pagination.prev_page && (
           <Link
             href={
               pagination.prev_page === 1
@@ -80,7 +80,7 @@ function SearchPagination({ pagination }) {
           </Link>
         )}
         {/* Next page */}
-        {pagination.has_next && (
+        {pagination.has_next && pagination.next_page && (
           <Link
             href={`/search?keyword=${query.keyword}&page=${pagination?.next_page}`}
           >

@@ -5,7 +5,7 @@ import Search from "../components/search/Search";
 export const getServerSideProps = async ({ query }) => {
   const { keyword, page = 1 } = query;
   const res = await fetch(
-    `https://cados.up.railway.app/advocates?query=${keyword}&page=${page}&limit=20`
+    `https://cados.up.railway.app/advocates?query=${keyword}&page=${page}`
   );
   const userData = await res.json();
   if (!userData) {
