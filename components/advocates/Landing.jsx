@@ -17,7 +17,7 @@ function Landing({ number }) {
       return;
     }
     const query = searchedQuery.trim().replaceAll(" ", "+");
-    router.push(`/search?name=${query}`);
+    router.push(`/search?keyword=${query}`);
   };
 
   return (

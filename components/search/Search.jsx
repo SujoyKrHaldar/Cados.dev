@@ -6,18 +6,19 @@ import { RiArrowLeftSLine } from "react-icons/ri";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Img from "../tools/Img";
+import SearchPagination from "../tools/SearchPagination";
 
-function Search({ user }) {
+function Search({ user, pagination }) {
   const router = useRouter();
-  const { name } = router.query;
-  const [searchQuery, setSearchQuery] = useState(name);
+  const { keyword } = router.query;
+  const [searchQuery, setSearchQuery] = useState(keyword);
 
   const handelSubmit = (e) => {
     e.preventDefault();
     const query = searchQuery.trim().replaceAll(" ", "+");
     searchQuery === ""
       ? router.push(`/search`)
-      : router.push(`/search?name=${query}`);
+      : router.push(`/search?keyword=${query}`);
   };
 
   return (
@@ -29,18 +30,6 @@ function Search({ user }) {
       </div>
 
       <div className="container w-full h-full space-y-4">
-        <div
-          onClick={() => router.back()}
-          className="fixed bottom-16 right-8 flex items-center justify-center gap-4 md:hidden
-               bg-black-500 text-white rounded-xl z-10 
-                 py-4 px-9 pl-5 active:scale-95 cursor-pointer"
-        >
-          <div className="flex items-center text-3xl">
-            <RiArrowLeftSLine />
-          </div>
-          <p className="md:text-base">Go back</p>
-        </div>
-
         <p className="tag">Find new peers</p>
         <form className="flex items-center gap-4" onSubmit={handelSubmit}>
           <div className="flex items-center gap-3">
@@ -67,7 +56,7 @@ function Search({ user }) {
         </form>
       </div>
 
-      {name && user.length === 0 && (
+      {keyword && user.length === 0 && (
         <div className="container pt-4">
           <p>No peers found.</p>
         </div>
@@ -75,12 +64,16 @@ function Search({ user }) {
 
       {user.length > 0 && (
         <div className="w-full h-full pt-4 pb-16">
-          <div className="container">
+          <div className="absolute w-full h-1/3 bottom-0 left-0 bg-skin-200"></div>
+          <div className="container space-y-10">
             {user.length > 0 && (
               <div className="space-y-4">
                 <p className="font-thin">
-                  <span className="font-semibold">Search result</span> -{" "}
-                  {user.length} profile found.
+                  <span className="font-semibold">Search result</span> - Total{" "}
+                  <span className="font-semibold">
+                    {pagination.results_found}
+                  </span>{" "}
+                  profile found.
                 </p>
                 <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {user.map((dev) => (
@@ -98,6 +91,9 @@ function Search({ user }) {
                   ))}
                 </div>
               </div>
+            )}
+            {pagination.pages.length > 1 && (
+              <SearchPagination pagination={pagination} />
             )}
           </div>
         </div>

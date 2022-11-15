@@ -3,27 +3,26 @@ import Layout from "../components/layout/Layout";
 import Search from "../components/search/Search";
 
 export const getServerSideProps = async ({ query }) => {
-  const { name } = query;
+  const { keyword, page = 1 } = query;
   const res = await fetch(
-    `https://cados.up.railway.app/advocates?query=${name}`
+    `https://cados.up.railway.app/advocates?query=${keyword}&page=${page}&limit=20`
   );
   const userData = await res.json();
-
   if (!userData) {
     return {
       redirect: "/",
       parmanent: false,
     };
   }
-
   return {
     props: {
+      pagination: userData.pagination,
       user: userData.advocates,
     },
   };
 };
 
-function search({ user }) {
+function search({ user, pagination }) {
   return (
     <>
       <Head>
@@ -32,7 +31,7 @@ function search({ user }) {
       </Head>
 
       <Layout>
-        <Search user={user} />
+        <Search user={user} pagination={pagination} />
       </Layout>
     </>
   );
